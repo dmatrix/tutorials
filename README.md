@@ -1,5 +1,3 @@
-# Tutorials and Workshops
-
 ![](images/tutorial_welcome_page.png)
 
 This repository contains tutorials for Apache Spark, Delta Lake, Koalas, MLflow, Databricks, and other. 
