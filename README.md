@@ -9,5 +9,6 @@ Aside from tutorials, I also have talks and workshops I have conducted at meetup
 Have fun!
 
 Cheers,
+
 Jules
 
