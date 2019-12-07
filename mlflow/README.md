@@ -1,6 +1,6 @@
 
 ![](images/intro_slide.png)
-# MLflow Tutorial for 2019 Conferences
+# MLflow Tutorial Presented at Conferences
 ## Agenda
  * Overview of ML development challenges
  * How MLflow tackles these
