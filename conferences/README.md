@@ -5,7 +5,7 @@ _filename._dbc_, which are Databricks notebooks used as part of the tutorial and
 download these _.dbc_ files and upload them in your [Databricks Community Edition](https://databricks.com/try)*[]: 
 
 
-* [PyData Miami](./pydata_miami)
+* [PyData Miami](./pydata/pydata_miami)
   * [![MLflow Talk](./images/mlflow_pydata_miami.png)](https://youtu.be/w-x0fYFGmJY?list=PLGVZCDnMOq0qtkoXglrDC6pS8NvY94QQw)
-* [PyData SF](./pydata_df)
+* [PyData SF](./pydata/pydata_df)
 
