@@ -1,15 +1,13 @@
 ![](images/tutorial_welcome_page.png)
 
-This repository contains learning resources for Apache Spark, Delta Lake, Koalas, [MLflow](mlflow/README.md), Databricks, and other. 
+A repository to house learning resources, this repo contains tutorials, workshops, talks, and code examples from various open-source projects
+like Apache Spark, Delta Lake, Koalas, [MLflow](mlflow/README.md), Databricks, and others.
 
-Aside from tutorials, this repo also has talks and workshops I have conducted at meetups and conferences.
-Feel free to clone it, use it with appropriate attribution, and contribute by file an issue or PR request.
+Use it for teaching or sharing, with appropriate attribution, and contribute back by filing an issue or PR request.
 
-Stay tuned ... more is coming... :)
+More to come, so stay tuned ... :)
 
 Have fun!
-
-Cheers,
 
 Jules
 
