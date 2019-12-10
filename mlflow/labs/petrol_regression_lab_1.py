@@ -54,18 +54,26 @@ class RFRModel():
         :param params: dictionary to RandomForestRegressor
         """
         self.rf = RandomForestRegressor(**params)
-        self.params = params
+        self._params = params
 
     @classmethod
     def new_instance(cls, params={}):
         return cls(params)
 
+    @property
     def model(self):
         """
         Return the model craeted
         :return: handle or instance of the RandomForestReqgressor
         """
         return self.rf
+
+    @property
+    def params(self):
+        """
+        Getter for model params
+        """
+        return self._params
 
     def mlflow_run(self, df, r_name="Lab-1:RF Petrol Regression Experiment"):
         """
@@ -98,7 +106,7 @@ class RFRModel():
             y_pred = self.rf.predict(X_test)
 
             # Log model and params using the MLflow sklearn APIs
-            mlflow.sklearn.log_model(self.rf, "random-forest-reg-model")
+            mlflow.sklearn.log_model(self.model, "random-forest-reg-model")
             mlflow.log_params(self.params)
 
             # compute  metrics; r2 is a statistical measure of how well the
@@ -119,7 +127,7 @@ class RFRModel():
             self.estimators.append(params["n_estimators"])
 
             # plot graphs and save as artifacts
-            (fig, ax) = Utils.plot_graphs(rfr.estimators, rfr.rsme, "Random Forest Estimators", "Root Mean Square", "Root Mean Square vs Estimators")
+            (fig, ax) = Utils.plot_graphs(self.estimators, self.rsme, "Random Forest Estimators", "Root Mean Square", "Root Mean Square vs Estimators")
 
             # get current run and experiment id
             runID = run.info.run_uuid
