@@ -44,18 +44,26 @@ class RFCModel():
         :param params: parameters for the constructor such as no of estimators, depth of the tree, random_state etc
         """
         self.rf = RandomForestClassifier(**params)
-        self.params = params
+        self._params = params
 
     @classmethod
     def new_instance(cls, params={}):
         return cls(params)
 
+    @property
     def model(self):
         """
         Fetch the model
         :return: return the model
         """
         return self.rf
+
+    @property
+    def params(self):
+        """
+        getter for model parameters
+        """
+        return self._params
 
     def mlflow_run(self, df, r_name="Lab-2:RF Bank Note Classification Experiment"):
         """
@@ -85,7 +93,7 @@ class RFCModel():
             y_pred = self.rf.predict(X_test)
 
             # Log model and params using the MLflow sklearn APIs
-            mlflow.sklearn.log_model(self.rf, "random-forest-class-model")
+            mlflow.sklearn.log_model(self.model, "random-forest-class-model")
             mlflow.log_params(self.params)
 
             # compute evaluation metrics
