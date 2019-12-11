@@ -22,6 +22,11 @@ class MNistKerasModel:
     def __repr__(self):
         return f"TF/Keras model built with parameters = {self.params}"
 
+    @classmethod
+    def new_instance(cls, X_train, Y_train, X_test, Y_test, params={}):
+
+        return cls(X_train, Y_train, X_test, Y_test, params)
+
     @property
     def params(self):
         """
@@ -73,9 +78,7 @@ class MNistKerasModel:
         # Use Scholastic Gradient Descent (SGD)
         # https://keras.io/optimizers/
         #
-        optimizer = tf.keras.optimizers.SGD(lr=self.params['learning_rate'],
-                                            momentum=self.params['momentum'],
-                                            nesterov=True)
+        optimizer = self.get_optimizer(self.params['optimizer'])
 
         # compile the model with optimizer and loss type
         # common loss types for classification are
@@ -86,6 +89,24 @@ class MNistKerasModel:
                       metrics=['accuracy'])
 
         return tf_model
+
+    def get_optimizer(self, opt_name):
+        """
+        :param name: name of the Keras optimizer
+        :param args: args for the optimizer
+        :return: Keras optimizer
+        """
+
+        if opt_name == 'SGD':
+            optimizer = tf.keras.optimizers.SGD(lr=self.params['learning_rate'],
+                                             momentum=self.params['momentum'],
+                                             nesterov=True)
+        elif (opt_name == 'RMSprop'):
+            optimizer = tf.keras.optimizers.RMSprop(lr=self.params['learning_rate'], rho=0.9, epsilon=None, decay=0.0)
+        else:
+            optimizer = tf.keras.optimizers.Adadelta(lr=self.params['learning_rate'], epsilon=None, decay=0.0)
+
+        return optimizer
 
     def mlfow_run(self, run_name="Lab-5:TensorFlow/Keras_MNIST"):
         """
@@ -131,14 +152,15 @@ if __name__ =='__main__':
               'num_inputs_units': 512,
               'num_hidden_layers': 1,
               'dropout': 0.24,
-              'momentum':0.85}
+              'momentum':0.85,
+              'optimizer': 'SGD'}
     # get MNIST data set
     mnist = keras.datasets.mnist
     # normalize the dataset
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     x_train, x_test = x_train / 255.0, x_test / 255.0
     # create model
-    tfkm = MNistKerasModel(x_train, y_train, x_test, y_test, params)
+    tfkm = MNistKerasModel.new_instance(x_train, y_train, x_test, y_test, params)
     print(tfkm)
     #track the model runs
     tfkm.mlfow_run()

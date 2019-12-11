@@ -231,7 +231,7 @@ Nice read on [feature importance](https://towardsdatascience.com/explaining-feat
 Nice read on [residual plots](http://docs.statwing.com/interpreting-residual-plots-to-improve-your-regression/)
  
 ### Lab-5 : Deep Learning Neural Networks for Classification
-* [_keras_mnist_lab_5.py_](./labs/keras_mnist_lab_5.py) 
+* [_tf_keras_mnist_lab_5.py_](./labs/tf_keras_mnist_lab_5.py) 
 Modified from [MLflow example](https://github.com/dbczumar/mlflow-keras-ffnn-mnist/blob/master/train.py)
 
 ### MNIST Neural Network with Layers
