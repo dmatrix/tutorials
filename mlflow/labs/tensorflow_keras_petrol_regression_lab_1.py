@@ -21,6 +21,10 @@ class TFKerasRegModel:
     def params(self):
         return self._params
 
+    @params.setter
+    def params(self, key, value):
+        self._params[key] = value
+
     def add_parameter(self, key, value):
         self._params[key] = value
 
@@ -47,17 +51,17 @@ class TFKerasRegModel:
     def _build_compiled_model(self):
         # build the model
         km = tf.keras.models.Sequential([
-                tf.keras.layers.Dense(self.get_parameter('input_units'),
-                    input_shape=self.get_parameter('input_shape'),
-                    activation=self.get_parameter('activation'),
+                tf.keras.layers.Dense(self.params['input_units'],
+                    input_shape=self.params['input_shape'],
+                    activation=self.params['activation'],
                     name="input_layer"),
-                 tf.keras.layers.Dense(self.get_parameter('input_units'),
-                                activation=self.get_parameter('activation'),
+                 tf.keras.layers.Dense(self.params['input_units'],
+                                activation=self.params['activation'],
                                 name="hidden_layer_1"),
                 tf.keras.layers.Dense(1)])
         # compile the model
-        km.compile(loss=self.get_parameter('loss'),
-                   optimizer=self.get_parameter('optimizer'),
+        km.compile(loss=self.params['loss'],
+                   optimizer=self.params['optimizer'],
                    metrics=['mse', Utils.rmse])
         return km
 
@@ -72,8 +76,8 @@ class TFKerasRegModel:
             X_train = sc.fit_transform(X_train)
             X_test = sc.fit_transform(X_test)
             self.model().fit(X_train, y_train,
-                            epochs= self.get_parameter('epochs'),
-                            batch_size=self.get_parameter('batch_size'),
+                            epochs= self.params['epochs'],
+                            batch_size=self.params['batch_size'],
                             validation_split=.2)
             runID = run.info.run_uuid
             experimentID = run.info.experiment_id
