@@ -162,5 +162,5 @@ if __name__ =='__main__':
     # create model
     tfkm = MNistKerasModel.new_instance(x_train, y_train, x_test, y_test, params)
     print(tfkm)
-    #track the model runs
+    # track the model runs
     tfkm.mlfow_run()
