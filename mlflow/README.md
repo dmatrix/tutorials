@@ -171,8 +171,10 @@ Objectives of this lab:
  **Hint**: Read the blog below on using three algorithms
  
  Nice blog on [RF, SVM, & LR](https://www.vshsolutions.com/blogs/banknote-authentication-using-machine-learning-algorithms/) on detecting fake notes
-
+ 
  Refresh on [Classification Metrics](https://joshlawman.com/metrics-classification-report-breakdown-precision-recall-f1/)
+ 
+ Refresh on [Confusion Matrix](https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/)
  
  Refresh on [RandomForest](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
  

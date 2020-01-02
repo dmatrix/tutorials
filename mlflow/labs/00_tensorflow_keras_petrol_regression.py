@@ -110,7 +110,7 @@ if __name__ =='__main__':
             'batch_size': 128}
         ]
     # mlflow ui --backend-store-uri sqlite:///registry_local
-    mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+    # mlflow.set_tracking_uri("http://127.0.0.1:5000/")
     dataset = Utils.load_data("data/petrol_consumption.csv")
     # get all feature independent attributes
     X = dataset.iloc[:, 0:4].values
