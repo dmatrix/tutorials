@@ -159,11 +159,11 @@ class RFRModel():
     # 1. Consult RandomForestRegressor documentation
     # 2. Change or add parameters, such as depth of the tree or random_state: 42 etc.
     # 3. Change or alter the range of runs and increments of n_estimators.
-    # 4. Check in MLfow UI if the metrics are affected
+    # 4. Check in MLflow UI if the metrics are affected
     # challenge-1: create root mean square error and r2 artifacts and save them for each run
-
 if __name__ == '__main__':
     # load and print dataset
+    mlflow.set_tracking_uri("sqlite:///mlruns_db")
     dataset = Utils.load_data("data/petrol_consumption.csv")
     Utils.print_pandas_dataset(dataset)
     # iterate over several runs with different parameters,
