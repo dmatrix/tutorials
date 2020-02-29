@@ -82,6 +82,7 @@ This iterative process is recurrent in each of the lab, as part of model managem
 
 ### Lab-1: Scikit-Learn Regression with RandomForestRegressor 
  [_00_tensorflow_keras_petrol_regression_lab_1.py_](./labs/00_tensorflow_keras_petrol_regression.py)
+ 
  [_01_petrol_regression_lab_1.py_](./labs/01_petrol_regression_lab.py)
 ### Problem
 Part 1: We want to predict the gas consumption in millions of gallons in 48 of the US states
@@ -127,7 +128,7 @@ Root Mean Squared Error (RSME), and r2 score.
  Data source for [lab 1 & 2](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)
 
 ### Lab-2: Scikit-Learn Classification with RandomForestClassifier
-* [_02_banknote_classification_lab_2.py_](./labs/02_banknote_classification_lab_2.py)
+* [_02_banknote_classification_lab.py_](./labs/02_banknote_classification_lab.py)
 
 ![](images/bank_note.png)
 
@@ -182,7 +183,7 @@ Objectives of this lab:
  Data source for [lab 1 & 2](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)
 
 ### Lab-3: Scikit-Learn Regression Base with RandomForestRegressor 
-  * [_03_airbnb_base_lab_3.py_](./labs/03_airbnb_base_lab_3.py)
+  * [_03_airbnb_base_lab.py_](./labs/03_airbnb_base_lab.py)
 ### Problem
 Take a cleansed, featurized dataset from AirBnB listing and develop a base line model to predict prices.  
 ### Solution
@@ -206,7 +207,7 @@ Objectives of this lab:
   [Related code](https://github.com/MangoTheCat/Modelling-Airbnb-Prices) for this model.
   
 ### Lab-4: Scikit-Learn Regression Experimental with RandomForestRegressor
-* [_04_airbnb_exp_lab_4.py_](./labs/04_airbnb_exp_lab_4.py)
+* [_04_airbnb_exp_lab.py_](./labs/04_airbnb_exp_lab.py)
 ### Problem
 Can you extend the baseline model built in lab 3 to build several experimental models?
 ### Solution
@@ -232,7 +233,7 @@ Nice read on [feature importance](https://towardsdatascience.com/explaining-feat
 Nice read on [residual plots](http://docs.statwing.com/interpreting-residual-plots-to-improve-your-regression/)
  
 ### Lab-5 : Deep Learning Neural Networks for Classification
-* [_05_tf_keras_mnist_lab_5.py_](./labs/05_tf_keras_mnist_lab_5.py) 
+* [_05_tf_keras_mnist_lab.py_](./labs/05_tf_keras_mnist_lab.py) 
 Modified from [MLflow example](https://github.com/dbczumar/mlflow-keras-ffnn-mnist/blob/master/train.py)
 
 ### MNIST Neural Network with Layers
@@ -262,7 +263,7 @@ Objectives of this lab:
  * Check MLflow UI and compare metrics among different runs
 
 ### Lab-6: Loading and predicting an existing model 
-* [_06_load_predict_model_lab_6.py_](./labs/06_load_predict_model_lab_6.py)
+* [_06_load_predict_model_lab.py_](./labs/06_load_predict_model_lab.py)
 
 ![](images/pyfunc_models.png)
 ### Problem
