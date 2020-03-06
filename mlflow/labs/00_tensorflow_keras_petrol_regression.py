@@ -109,7 +109,7 @@ if __name__ =='__main__':
             'epochs': 200,
             'batch_size': 128}
         ]
-    # mlflow ui --backend-store-uri sqlite:///mlruns_db
+    # mlflow ui --backend-store-uri sqlite:///mlruns.db
     mlflow.set_tracking_uri("sqlite:///mlruns_db")
     dataset = Utils.load_data("data/petrol_consumption.csv")
     # get all feature independent attributes
