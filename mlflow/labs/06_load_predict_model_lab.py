@@ -2,7 +2,8 @@ import mlflow
 import mlflow.sklearn
 import mlflow.pyfunc
 from sklearn.preprocessing import StandardScaler
-from lab_utils import Utils
+from lab_cls.lab_utils import Utils
+import warnings
 
 class MLflowOps():
     """
@@ -33,7 +34,10 @@ class MLflowOps():
 
 if __name__ == '__main__':
 
+    warnings.filterwarnings("ignore")
+
     mclnt = MLflowOps()
+    mlflow.set_tracking_uri("sqlite:///mlruns.db")
     dataset = Utils.load_data("data/test_petrol_consumption.csv")
     # get all rows and columns but the last column
     X_test = dataset.iloc[:, 0:4].values
