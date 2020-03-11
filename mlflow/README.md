@@ -2,18 +2,18 @@
 ![](images/intro_slide.png)
 # MLflow Tutorial Presented at Conferences
 ## Agenda
- * Overview of ML development challenges
+ * Overview of ML development challenges (40 mins)
  * How MLflow tackles these
  * MLflow Components
    * Mlflow Tracking
    * MLflow Projects
    * MLflow Models
    * MLflow Registry
- * Managed MLflow MLlib + Registry Demo
+ * Managed MLflow Registry Demo
  * Q & A
  * (Break?)
- * Set up Environment
- * Hands-on Tutorial
+ * Set up Environment (10 mins)
+ * Hands-on Tutorial (rest of the class)
 ### Prerequisites 
 1. Knowledge of Python 3 and programming in general
 2. Preferably a UNIX-based, fully-charged laptop with 8-16 GB, with a Chrome or Firefox browser
@@ -21,9 +21,10 @@
 4. Some Knowledge of some Machine Learning concepts, libraries, and frameworks 
      * scikit-Learn
      * pandas and Numpy
+     * matplotlib
      * TensorFlow/Keras
 5. PyCharm/IntelliJ or choice of syntax-based Python editor
-6. pip/pip3 and Python 3 installed
+6. pip/pip3 or conda and Python 3 installed
 7. Loads of laughter, curiosity, and a sense of humor ... :-)
 
 ### Installation and Setup environment
@@ -31,13 +32,13 @@
 1. Open MLflow [docs](https://mlflow.org) and scikit-learn [docs](https://scikit-learn.org/stable/index.html) in your browser. Keep this tab open.
 2. `git clone git@github.com:dmatrix/tutorials.git` or `git clone https://github.com/dmatrix/tutorials.git`
 3. `cd <your_cloned_directory>/tutorials/mlflow/`
-4. Install MLflow and the required Python modules 
+4. Install MLflow and the required Python modules
     * `pip install -r req.txt` or `pip3 install -r req.txt`
 5. `cd labs`
 6. If using PyCharm or IntelliJ, create a project and load source files in the project
-7. Pre-register for [Databricks Community Edition](https://databricks.com/try-databricks)
+7. **Optional**: Pre-register for [Databricks Community Edition](https://databricks.com/try-databricks)
 
-### Configuring local host with MLflow Credentials for Community Edition (CE)
+### **Optionall**: Configuring local host with MLflow Credentials for Community Edition (CE)
 
 **Note**: This step is **only** required if you're going to use CE to track experiment runs
 
@@ -80,8 +81,9 @@ algorithms and using MLflow APIs. In simple terms:
 
 This iterative process is recurrent in each of the lab, as part of model management life cycle. 
 
-### Lab-1: Scikit-Learn Regression with RandomForestRegressor 
- [_00_tensorflow_keras_petrol_regression_lab_1.py_](./labs/00_tensorflow_keras_petrol_regression.py)
+### Lab-0: Get Started with MLflow
+
+### Lab-01: Scikit-Learn Regression with RandomForestRegressor 
  
  [_01_petrol_regression_lab_1.py_](./labs/01_petrol_regression_lab.py)
 ### Problem
@@ -110,14 +112,14 @@ Root Mean Squared Error (RSME), and r2 score.
  * Use the MLflow API to experiment several Runs
  * Interpret and observe runs via the MLflow UI
  
-#### Lab-1 Exercise: 
+#### Lab-01 Exercise: 
 
  1. Consult [RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) documentation 
  2. Change or alter the range of runs and increments of n_estimators, random_state etc.
  3. Change or alter the range of runs and increments of n_estimators
  4. Check in MLfow UI if the metrics are affected
  
- *_challenge-1_:* Create mean square error or r2 artifacts and save them for each run
+ *_challenge-1_:* Create mean square error or r2 artifacts plots and save them for each run
  
  Refresh on [Regression Metrics](https://www.dataquest.io/blog/understanding-regression-error-metrics/)
  
@@ -127,7 +129,7 @@ Root Mean Squared Error (RSME), and r2 score.
  
  Data source for [lab 1 & 2](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)
 
-### Lab-2: Scikit-Learn Classification with RandomForestClassifier
+### Lab-02: Scikit-Learn Classification with RandomForestClassifier
 * [_02_banknote_classification_lab.py_](./labs/02_banknote_classification_lab.py)
 
 ![](images/bank_note.png)
@@ -158,7 +160,7 @@ Objectives of this lab:
  * Use the MLflow API to experiment several runs
  * Interpret and observe runs via the MLflow UI
  
-#### Lab-2 Exercise: 
+#### Lab-02 Exercise: 
   * Consult [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) documentation
   * Change or add parameters, such as depth of the tree or random_state, etc.
   * Change or alter the range of runs and increments of n_estimators
@@ -182,7 +184,7 @@ Objectives of this lab:
  
  Data source for [lab 1 & 2](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)
 
-### Lab-3: Scikit-Learn Regression Base with RandomForestRegressor 
+### Lab-03: Scikit-Learn Regression Base with RandomForestRegressor 
   * [_03_airbnb_base_lab.py_](./labs/03_airbnb_base_lab.py)
 ### Problem
 Take a cleansed, featurized dataset from AirBnB listing and develop a base line model to predict prices.  
@@ -200,7 +202,7 @@ Objectives of this lab:
  * How to use the MLflow Tracking API
  * Interpret and observe runs via the MLflow UI
   
-#### Lab-3 Exercise: 
+#### Lab-03 Exercise: 
   *  Run script and create a simple base line model
   *  Observe the parameters and metrics in the MLflow UI
   
@@ -220,7 +222,7 @@ Objectives of this lab:
  
  Nice read on [Feature Importance](https://towardsdatascience.com/explaining-feature-importance-by-example-of-a-random-forest-d9166011959e) in Random Forest model.
  
-#### Lab-4 Exercise: 
+#### Lab-04 Exercise: 
   * Modify or extend the parameters
   * Compare the results between baseline and experimental runs
   * Did the experimental runs produce better outcomes of metrics?
@@ -232,7 +234,7 @@ Nice read on [feature importance](https://towardsdatascience.com/explaining-feat
  
 Nice read on [residual plots](http://docs.statwing.com/interpreting-residual-plots-to-improve-your-regression/)
  
-### Lab-5 : Deep Learning Neural Networks for Classification
+### Lab-05 : Deep Learning Neural Networks for Classification
 * [_05_tf_keras_mnist_lab.py_](./labs/05_tf_keras_mnist_lab.py) 
 Modified from [MLflow example](https://github.com/dbczumar/mlflow-keras-ffnn-mnist/blob/master/train.py)
 
@@ -262,12 +264,12 @@ Objectives of this lab:
  * Log parameters, metrics, and the model
  * Check MLflow UI and compare metrics among different runs
 
-### Lab-6: Loading and predicting an existing model 
+### Lab-06: Loading and predicting an existing model 
 * [_06_load_predict_model_lab.py_](./labs/06_load_predict_model_lab.py)
 
 ![](images/pyfunc_models.png)
 ### Problem
-Having experimented several runs from lab 1-5, can can you reuse the model to predict?
+Having experimented several runs from labs above, can can you reuse the model to predict?
 ### Solution
 Load an existing model by extending or modifying code to reload the saved model and 
 use test data on its _model_.predict(test_data) method.
@@ -285,7 +287,24 @@ Objectives of this lab:
   * Check your MLflow UI for run_uids
  * Use the _load_model_type.predict(test_data)_ to predict the outcome
  
-### Lab-7 (optional): Executing MLproject from GitHub
+### Lab-07 : Revisit Lab 1 Problem of Linear Regression using TensorFlow/Keras 
+
+#### Lab Exercise: 
+ * Run this script
+
+### Lab-08 : Using the MLflow Register UI
+
+#### Lab Exercise: 
+
+### Lab-09 : Using the MLflow Register APIs
+
+#### Lab Exercise: 
+
+### Lab-10: Deplying and model 
+
+#### Lab Exercise: 
+
+### Lab-11 (optional): Executing MLproject from GitHub
 
 ![](images/mlproject_file.png)
 
@@ -307,7 +326,7 @@ Objectives of this lab:
   * Execute the MLproject with `mlflow run https://github.com/<your_example.git> [-P args...]`
   * Execute your new MLproject using [mlflow.run(...)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.run) API
 
-### Lab-8 (Capstone): Create, experiment, and manage your model of choice
+### Lab-12 (Capstone): Create, experiment, register, and manage your model of choice Lifecycle
 
 Objectives of this lab:
  * Use and build whatever you have learned from above

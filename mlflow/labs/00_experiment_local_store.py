@@ -14,10 +14,8 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     print(mlflow.__version__)
 
-    # set the tracking server to be Databricks Community Edition
-    # set the experiment name; if name does not exist, MLflow will
-    # create one for you
-    local_registry = "sqlite:///mlruns_db"
+    # Use sqlite:///mlruns.db as the local store
+    local_registry = "sqlite:///mlruns.db"
     print(f"Running local model registry={local_registry}")
     model_name = "sk-learn-random-forest-reg-model"
     mlflow.set_tracking_uri(local_registry)
@@ -25,7 +23,7 @@ if __name__ == "__main__":
         params = {"n_estimators": 3, "random_state": 0}
         sk_learn_rfr = RandomForestRegressor(params)
 
-        # Log params using the MLflow sklearn APIs
+        # Log params and metrics using the MLflow APIs
         mlflow.log_params(params)
         log_param("param_1", randint(0, 100))
         log_metric("metric_1", random())
@@ -48,17 +46,17 @@ if __name__ == "__main__":
     # Get model name if not regisered, register with model registry
     # on a local host
     #
-    clnt = MlflowClient()
+    client = MlflowClient()
 
     # Use MLflowClient to Update Description for version 1.
-    clnt.update_model_version(
+    client.update_model_version(
         name=model_name,
         version=1,
         description="A random forest model containing 100 decision trees trained in scikit-learn"
     )
     print(f"Description Updated for model {model_name} and version 1")
     # Make stage transition of the lastest to production
-    clnt.transition_model_version_stage(name="sk-learn-random-forest-reg-model",
+    client.transition_model_version_stage(name="sk-learn-random-forest-reg-model",
                     version=1,
                     stage="production")
     print(f"Model {model_name} and version 1 transitioned to Production")
@@ -66,17 +64,20 @@ if __name__ == "__main__":
     # Get a list of all registered models
     print("List of all registered models")
     print("=" * 80)
-    [print(pprint.pprint(dict(rm), indent=4)) for rm in clnt.list_registered_models()]
+    [print(pprint.pprint(dict(rm), indent=4)) for rm in client.list_registered_models()]
     # Get a list of specific versions of the named models
     print(f"List of Model = {model_name} and Versions")
     print("=" * 80)
-    [pprint.pprint(dict(mv), indent=4) for mv in clnt.search_model_versions("name='sk-learn-random-forest-reg-model'")]
+    [pprint.pprint(dict(mv), indent=4) for mv in client.search_model_versions("name='sk-learn-random-forest-reg-model'")]
 
-    clnt.delete_model_version(name="sk-learn-random-forest-reg-model",
+    client.delete_model_version(name="sk-learn-random-forest-reg-model",
     version=1)
     print("=" * 80)
-    [pprint.pprint(dict(mv), indent=4) for mv in clnt.search_model_versions("name='sk-learn-random-forest-reg-model'")]
+    [pprint.pprint(dict(mv), indent=4) for mv in client.search_model_versions("name='sk-learn-random-forest-reg-model'")]
 
-    clnt.delete_registered_model(model_name)
+    client.delete_registered_model(model_name)
+    #
+    # check if all are removed from the registry
+    #
     print("=" * 80)
-    [print(pprint.pprint(dict(rm), indent=4)) for rm in clnt.list_registered_models()]
+    [print(pprint.pprint(dict(rm), indent=4)) for rm in client.list_registered_models()]
