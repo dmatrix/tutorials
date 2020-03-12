@@ -112,7 +112,7 @@ def mlfow_run(run_name="Lab-5:Keras_MNIST", model_summary=False, opt_name="SGD")
         class LogMetricsCallback(keras.callbacks.Callback):
             def on_epoch_end(self, epoch, logs={}):
                 mlflow.log_metric("training_loss", logs["loss"], epoch)
-                mlflow.log_metric("training_accuracy", logs["acc"], epoch)
+                mlflow.log_metric("training_accuracy", logs["accuracy"], epoch)
 
         # fit the model
         # get experiment id and run id
@@ -149,7 +149,7 @@ def mlfow_run(run_name="Lab-5:Keras_MNIST", model_summary=False, opt_name="SGD")
 
 if __name__ == '__main__':
     for opt_name in ['SGD', 'RMSprop','Adadelta']:
-        (experimentID, runID) = mlfow_run(run_name="Jules-Lab5:Keras_MNIST", opt_name=opt_name)
+        (experimentID, runID) = mlfow_run(run_name="Solution-Lab5:Keras_MNIST", opt_name=opt_name)
         print("MLflow completed with run_id {}, optimizer {} and experiment_id {}".format(runID, opt_name, experimentID))
         print("-" * 100)
     print(tf.__version__)

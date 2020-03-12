@@ -26,7 +26,7 @@ class RFCModel():
         """
         return self.rf
 
-    def mlflow_run(self, df, r_name="Lab-2:RF Bank Note Classification Experiment"):
+    def mlflow_run(self, df, r_name="Solution-2:RF Bank Note Classification Experiment"):
         """
         This method trains, computes metrics, and logs all metrics, parameters,
         and artifacts for the current run

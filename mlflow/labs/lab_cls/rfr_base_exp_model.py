@@ -71,20 +71,20 @@ class RFRBaseModel():
             return (experimentID, runID)
 
 
-class RFFExperimentModel(RFRBaseModel):
+class RFRExperimentModel(RFRBaseModel):
     """
     Constructor for the Experimental RandomForestRegressor.
     """
 
-    def __int__(self, params):
+    def __init__(self, params):
         """
         Call the superclass initializer
         :param params: parameters for the RandomForestRegressor instance
         :return: None
         """
-        super(RFRBaseModel, self).__init__(params)
+        super(RFRExperimentModel, self).__init__(params)
 
-    def mlflow_run(self, df, r_name="Lab-4:RF Experiment Model"):
+    def mlflow_run(self, df, experiment, r_name="Lab-4:RF Experiment Model"):
         """
         Override the base class mlflow_run for this epxerimental runs
         This method trains the model, evaluates, computes the metrics, logs
@@ -157,7 +157,7 @@ class RFFExperimentModel(RFRBaseModel):
                 temp_file_name.close()  # Delete the temp file
 
             print("-" * 100)
-            print("Inside MLflow {} Run with run_id {} and experiment_id {}".format(r_name, runID, experimentID))
+            print("Inside MLflow {} Run with run_id {} and experiment_id {}".format(experiment, runID, experimentID))
             print("  mse: {}".format(mse))
             print(" rmse: {}".format(rmse))
             print("  mae: {}".format(mae))
