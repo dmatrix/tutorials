@@ -40,6 +40,7 @@
 
 ### **Optional**: Configuring local host with MLflow Credentials for Community Edition (CE)
 
+
 **Note**: This step is **only** required if you're going to use CE to track experiment runs
 
 Good [Resource Blog](https://databricks.com/blog/2019/10/17/managed-mlflow-now-available-on-databricks-community-edition.html)
@@ -323,6 +324,7 @@ Objectives of this lab:
 #### Lab Exercise: 
 
 ### Lab-10: Deploying and Serving a model 
+
 
 #### Lab Exercise: 
 
