@@ -38,7 +38,8 @@
 6. If using PyCharm or IntelliJ, create a project and load source files in the project
 7. **Optional**: Pre-register for [Databricks Community Edition](https://databricks.com/try-databricks)
 
-### **Optionall**: Configuring local host with MLflow Credentials for Community Edition (CE)
+### **Optional**: Configuring local host with MLflow Credentials for Community Edition (CE)
+
 
 **Note**: This step is **only** required if you're going to use CE to track experiment runs
 
@@ -60,32 +61,54 @@ Good [Resource Blog](https://databricks.com/blog/2019/10/17/managed-mlflow-now-a
 4. [Scikit-Learn](https://scikit-learn.org/stable/index.html)
 5. [Keras](https://keras.io/optimizers/)
 6. [TensorFlow](https://tensorflow.org)
+7. [Matplotlib](https://matplotlib.org/3.2.0/tutorials/introductory/pyplot.html)
 
 ## Labs 
-The general objective of the labs are to familiarize you with MLflow APIs and how these
-APIs facilitate different machine learning cycle: from creating a baseline or a benchmark model to 
-creating many experimental models by tuning parameters to produce a best outcome; from understanding
-how to package an MLflow project as a unit of execution and sharing to learning about MLflow model flavors
-and their flexibility to deploy them. 
+The general objective of the labs is to familiarize you with MLflow APIs how these
+APIs facilitate different machine learning cycle: creating a baseline or a benchmark model; 
+creating many experimental models by tuning parameters to produce a best outcome; understanding
+how to package an MLflow project as a unit of execution; and learning about MLflow model flavors
+and their flexibility.
 
 All this is achieved by experimenting and tracking the effects of different models, developed with different ML
-algorithms and using MLflow APIs. In simple terms:
+algorithms and tracking its results using MLflow APIs. In simple terms, the typical
+ML management cycle is:
 
 1. Train a base line model with initial parameters
 2. Record the relevant metrics and parameters with MLflow APIs
 3. Observe the results via MLflow UI
-4. Change or tweak relevant parameters
-5. Test or evaluate model
-6. Repeat 2-5 until satisfied
-7. Deploy your model flavor
+4. Change or tweak relevant parameters in your model code
+5. Train again 
+6. Test or evaluate model
+7. Repeat 2-6 until satisfied
 
-This iterative process is recurrent in each of the lab, as part of model management life cycle. 
+This iterative process is recurrent in each of the lab, as part of model management life cycle.
+Well, let's get started, as these labs are going to he hands-on and you'll
+be writing code! 
 
-### Lab-0: Get Started with MLflow
+### Lab-00: Get Started with MLflow
+
+[00_get_started.py](./labs/00_get_started.py)
+
+### Problem
+How to get you started with MLflow and how to peruse the documentation
+
+### Solution
+
+* MLflow Docs
+ * [MLflow General](https://mlflow.org/docs/latest/index.html)
+ * [MLflow Models APIs](https://mlflow.org/docs/latest/python_api/index.html)
+ * [MLflow Tracking Client API](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html)
+* Let's run this lab in class together
+* `cd labs`
+* In a separate shell, `cd labs && mlflow ui --backend-store-uri sqlite:///mlruns.db`
+* In s speparate shell, `cd labs && python 00_get_started.py` or Run from your IDE
+* Go the to MLflow UI at http://127.0.0.1:5000
+* Let's examine the MLflow UI
 
 ### Lab-01: Scikit-Learn Regression with RandomForestRegressor 
  
- [_01_petrol_regression_lab_1.py_](./labs/01_petrol_regression_lab.py)
+ [_01_petrol_regression_lab.py_](./labs/01_petrol_regression_lab.py)
 ### Problem
 Part 1: We want to predict the gas consumption in millions of gallons in 48 of the US states
 based on some key features. These features are petrol tax (in cents), per capital income (in US dollars),
@@ -300,7 +323,8 @@ Objectives of this lab:
 
 #### Lab Exercise: 
 
-### Lab-10: Deplying and model 
+### Lab-10: Deploying and Serving a model 
+
 
 #### Lab Exercise: 
 
