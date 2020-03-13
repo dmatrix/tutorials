@@ -85,7 +85,7 @@ This iterative process is recurrent in each of the lab, as part of model managem
 Well, let's get started, as these labs are going to he hands-on and you'll
 be writing code! 
 
-### Lab-0: Get Started with MLflow
+### Lab-00: Get Started with MLflow
 
 [00_get_started.py](./labs/00_get_started.py)
 
