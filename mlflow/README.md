@@ -94,12 +94,12 @@ be writing code!
 How to get you started with MLflow and how to peruse the documentation
 
 ### Solution
-
-* MLflow Docs
+MLflow Documentation:
  * [MLflow General](https://mlflow.org/docs/latest/index.html)
  * [MLflow Models APIs](https://mlflow.org/docs/latest/python_api/index.html)
  * [MLflow Tracking Client API](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html)
-* Let's run this lab in class together
+
+Let's run this lab in class together
 * `cd labs`
 * In a separate shell, `cd labs && mlflow ui --backend-store-uri sqlite:///mlruns.db`
 * In s speparate shell, `cd labs && python 00_get_started.py` or Run from your IDE
