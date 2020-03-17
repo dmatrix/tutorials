@@ -6,6 +6,7 @@ from lab_cls.keras_model import MNistKerasModel
 if __name__ =='__main__':
 
     print("Using TensorFlow Version={}".format(tf.__version__))
+    # Set local registry store
     mlflow.set_tracking_uri("sqlite:///mlruns.db")
     # Our model parameters that can be tweaked for regularization and
     #
