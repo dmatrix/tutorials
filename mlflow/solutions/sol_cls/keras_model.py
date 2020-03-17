@@ -124,8 +124,10 @@ class MNistKerasModel:
                       epochs=self.params['epochs'],
                       batch_size=self.params['batch_size'],
                       callbacks=[LogMetricsCallback()])
+
             # evaluate the model
             test_loss, test_acc = self.model().evaluate(self._X_test, self._Y_test, verbose=2)
+
             # log metrics
             mlflow.log_metric("test_loss", test_loss)
             mlflow.log_metric("test_accuracy", test_acc)

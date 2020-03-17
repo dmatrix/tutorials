@@ -83,6 +83,7 @@ def mlflow_run(params, run_name="LOCAL_REGISTRY"):
 
         run_id = run.info.run_uuid
         experiment_id = run.info.experiment_id
+
         # Create our model type instance
         sk_learn_rfr = RandomForestRegressor(params)
 
@@ -116,9 +117,6 @@ def mlflow_run(params, run_name="LOCAL_REGISTRY"):
                 mlflow.log_artifact(temp_name, "scatter_plots")
             finally:
                 temp_file_name.close()  # Delete the temp file
-
-        run_id = run.info.run_uuid
-        experiment_id = run.info.experiment_id
 
         return (run_id, experiment_id)
 
