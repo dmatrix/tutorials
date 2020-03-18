@@ -13,12 +13,13 @@ from lab_cls.lab_utils import Utils
 
 import warnings
 
-RANDOM_TEXTS= ["Looks, like I logged to the local store!",
-               "This covid-19 is driving me nuts. Look at the graphs!",
-               "Don't Despair, for help is on the way!",
-               "This Mlflow thingy is way cool!",
-               "Try the new MLflow Registry component",
-               "Hello, ODSC East Boston! You all virtual now?"]
+RANDOM_TEXTS = ["Looks, like I logged to the local store!",
+                "This covid-19 is driving me nuts. Look at the graphs!",
+                "Don't Despair, for help is on the way!",
+                "This Mlflow thingy is way cool!",
+                "Try the new MLflow Registry component",
+                "Hello, ODSC East Boston! You all virtual now?"]
+
 
 def gen_random_text():
     """
@@ -49,6 +50,7 @@ def gen_random_scatter_plots(npoints):
     plt.ylabel('entry for data in B')
     return (fig, ax)
 
+
 def print_experiment_details(experiment_id, run_id):
     """
     Method to print experiment run info and a specific run details
@@ -69,6 +71,7 @@ def print_experiment_details(experiment_id, run_id):
     print("=" * 80)
     print(f"List Run info for run_id={run_id}")
     print(pprint.pprint(dict(mlflow.get_run(run_id))))
+
 
 def mlflow_run(params, run_name="LOCAL_REGISTRY"):
     """
@@ -93,14 +96,22 @@ def mlflow_run(params, run_name="LOCAL_REGISTRY"):
         mlflow.log_metric("metric_2", random() + 1)
         mlflow.log_metric("metric_3", random() + 2)
 
+        # Set the notes for experiment and the Runs
+        MlflowClient().set_experiment_tag(experiment_id,
+                                          "mlflow.note.content",
+                                          "This is experiment for getting started with MLflow ...")
+        MlflowClient().set_tag(run_id,
+                               "mlflow.note.content",
+                               "This Run is for getting started with MLflow ...")
+
         # Log the model at the same time
         mlflow.sklearn.log_model(
-                    sk_model = sk_learn_rfr,
-                    artifact_path = "sklearn-model")
+            sk_model=sk_learn_rfr,
+            artifact_path="sklearn-model")
 
         # Create sample message artifact
         if not os.path.exists("messages"):
-         os.makedirs("messages")
+            os.makedirs("messages")
         with open("messages/message.txt", "w") as f:
             f.write(gen_random_text())
 
@@ -120,8 +131,8 @@ def mlflow_run(params, run_name="LOCAL_REGISTRY"):
 
         return (run_id, experiment_id)
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     print(mlflow.__version__)
 
@@ -135,7 +146,3 @@ if __name__ == "__main__":
 
     # Print experiment and run details
     print_experiment_details(experiment_id, run_id)
-
-
-
-
