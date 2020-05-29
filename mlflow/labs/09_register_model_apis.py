@@ -64,7 +64,13 @@ if __name__ == "__main__":
     # Get a list of all registered models
     print("List of all registered models")
     print("=" * 80)
-    [print(pprint.pprint(dict(rm), indent=4)) for rm in client.list_registered_models()]
+    #[print(pprint.pprint(dict(rm), indent=4)) for rm in client.list_registered_models()]
+    for rm in client.list_registered_models():
+        print(f"name={rm.name}")
+        [(print(f"run_id={mv.run_id}"),
+          print(f"current_stage={mv.current_stage}"),
+          print(f'version={mv.version}')) for mv in rm.latest_versions]
+
     # Get a list of specific versions of the named models
     print(f"List of Model = {model_name} and Versions")
     print("=" * 80)
@@ -81,3 +87,4 @@ if __name__ == "__main__":
     #
     print("=" * 80)
     [print(pprint.pprint(dict(rm), indent=4)) for rm in client.list_registered_models()]
+

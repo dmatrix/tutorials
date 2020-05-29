@@ -340,7 +340,7 @@ Objectives of this lab:
  * Execute an existing MLproject on git
  * Consult [docs](https://mlflow.org/docs/latest/quickstart.html#running-mlflow-projects) for running MLprojects
  * Can you execute it with different parameters?
- * `mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5`
+ * `mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=.4`
  * with no-conda use `mlflow run --no-conda https://github.com/mlflow/mlflow-example.git -P alpha=5`
  * Execute the MLproject using [mlflow.run(...)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.run) API
  

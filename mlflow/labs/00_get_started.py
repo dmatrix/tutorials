@@ -6,7 +6,7 @@ from random import random, randint
 import numpy as np
 import matplotlib.pyplot as plt
 import mlflow.sklearn
-from mlflow import log_metric, log_param, log_artifacts
+import mlflow
 from sklearn.ensemble import RandomForestRegressor
 from mlflow.tracking import MlflowClient
 from lab_cls.lab_utils import Utils
@@ -18,7 +18,7 @@ RANDOM_TEXTS = ["Looks, like I logged to the local store!",
                 "Don't Despair, for help is on the way!",
                 "This Mlflow thingy is way cool!",
                 "Try the new MLflow Registry component",
-                "Hello, ODSC East Boston! You all virtual now?"]
+                "Hello, PyData Montreal! Nice to virtual now!"]
 
 
 def gen_random_text():
@@ -115,7 +115,7 @@ def mlflow_run(params, run_name="LOCAL_REGISTRY"):
         with open("messages/message.txt", "w") as f:
             f.write(gen_random_text())
 
-        log_artifacts("messages")
+        mlflow.log_artifacts("messages")
         shutil.rmtree('messages')
 
         # Create scatter random plot artifacts file and log artifact

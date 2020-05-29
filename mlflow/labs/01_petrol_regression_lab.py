@@ -32,26 +32,27 @@ https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestR
 import mlflow.sklearn
 from lab_cls.rfr_model import RFRModel
 from lab_cls.lab_utils import Utils
+
 #
 # TODO in Lab/Homework for Some Experimental runs
 #
-    # 1. Consult RandomForestRegressor documentation
-    # 2. Change or add parameters, such as depth of the tree or random_state: 42 etc.
-    # 3. Change or alter the range of runs and increments of n_estimators.
-    # 4. Check in MLflow UI if the metrics are affected
-    # challenge-1: create root mean square error and r2 artifacts and save them for each run
+# 1. Consult RandomForestRegressor documentation
+# 2. Change or add parameters, such as depth of the tree or random_state: 42 etc.
+# 3. Change or alter the range of runs and increments of n_estimators.
+# 4. Check in MLflow UI if the metrics are affected
+# challenge-1: create root mean square error and r2 artifacts and save them for each run
 
 if __name__ == '__main__':
-    # Use sqlite:///mlruns.db as the local store for tracking and registery
-    mlflow.set_tracking_uri("sqlite:///mlruns.db")
-    # load and print dataset
-    dataset = Utils.load_data("data/petrol_consumption.csv")
-    Utils.print_pandas_dataset(dataset)
-    # iterate over several runs with different parameters,
-    for n in range (25, 125, 25):
-    # stepping up by 25 trees and limiting to 100
-        params = {"n_estimators": n, "random_state": 0 }
-        rfr = RFRModel.new_instance(params)
-        (experimentID, runID) = rfr.mlflow_run(dataset)
-        print("MLflow Run completed with run_id {} and experiment_id {}".format(runID, experimentID))
-        print("-" * 100)
+   # Use sqlite:///mlruns.db as the local store for tracking and registery
+   mlflow.set_tracking_uri("sqlite:///mlruns.db")
+   # load and print dataset
+   dataset = Utils.load_data("data/petrol_consumption.csv")
+   Utils.print_pandas_dataset(dataset)
+   # iterate over several runs with different parameters,
+   for n in range(25, 125, 25):
+      # stepping up by 25 trees and limiting to 100
+      params = {"n_estimators": n, "random_state": 0}
+      rfr = RFRModel.new_instance(params)
+      (experimentID, runID) = rfr.mlflow_run(dataset)
+      print("MLflow Run completed with run_id {} and experiment_id {}".format(runID, experimentID))
+      print("-" * 100)
